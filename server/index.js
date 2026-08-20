@@ -25,6 +25,7 @@ app.get("/hello", (req, res) => {
 
 // APIs
 app.use("/api/admin", require("./api/admin.js"));
+app.use("/api/customer", require("./api/customer.js"));
 
 // Start Server (placed at the bottom)
 app.listen(PORT, () => {
