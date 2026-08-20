@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import MyContext from "../contexts/MyContext";
 import Menu from "./MenuComponent";
 import Home from "./HomeComponent";
-
+import Category from "./CategoryComponent";
 class Main extends Component {
   static contextType = MyContext;
 
@@ -18,6 +18,7 @@ class Main extends Component {
               element={<Navigate replace to="/admin/home" />}
             />
             <Route path="/admin/home" element={<Home />} />
+            <Route path="/admin/category" element={<Category />} />
           </Routes>
         </div>
       );
