@@ -6,6 +6,7 @@ const JwtUtil = require("../utils/JwtUtil");
 
 // DAOs
 const AdminDAO = require("../models/AdminDAO");
+const CategoryDAO = require("../models/CategoryDAO");
 
 // Login
 router.post("/login", async function (req, res) {
@@ -41,4 +42,34 @@ router.get("/token", JwtUtil.checkToken, function (req, res) {
   res.json({ success: true, message: "Token is valid", token: token });
 });
 
+// Categories
+router.get("/categories", JwtUtil.checkToken, async function (req, res) {
+  try {
+    const categories = await CategoryDAO.selectAll();
+    res.json(categories);
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+router.post("/categories", JwtUtil.checkToken, async function (req, res) {
+  const name = req.body.name;
+  const category = { name: name };
+  const result = await CategoryDAO.insert(category);
+  res.json(result);
+});
+
+router.put("/categories/:id", JwtUtil.checkToken, async function (req, res) {
+  const _id = req.params.id;
+  const name = req.body.name;
+  const category = { _id: _id, name: name };
+  const result = await CategoryDAO.update(category);
+  res.json(result);
+});
+
+router.delete("/categories/:id", JwtUtil.checkToken, async function (req, res) {
+  const _id = req.params.id;
+  const result = await CategoryDAO.delete(_id);
+  res.json(result);
+});
 module.exports = router;
