@@ -7,6 +7,10 @@ const CategoryDAO = {
     const categories = await Models.Category.find(query).exec();
     return categories;
   },
+  async selectByID(_id) {
+    const category = await Models.Category.findById(_id).exec();
+    return category;
+  },
   async insert(category) {
     const mongoose = require("mongoose");
     category._id = new mongoose.Types.ObjectId();

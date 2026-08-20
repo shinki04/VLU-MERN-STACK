@@ -4,6 +4,7 @@ import MyContext from "../contexts/MyContext";
 import Menu from "./MenuComponent";
 import Home from "./HomeComponent";
 import Category from "./CategoryComponent";
+import Product from "./ProductComponent";
 class Main extends Component {
   static contextType = MyContext;
 
@@ -19,6 +20,7 @@ class Main extends Component {
             />
             <Route path="/admin/home" element={<Home />} />
             <Route path="/admin/category" element={<Category />} />
+            <Route path="/admin/product" element={<Product />} />
           </Routes>
         </div>
       );
