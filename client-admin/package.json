@@ -2,6 +2,7 @@
   "name": "client-admin",
   "version": "0.1.0",
   "private": true,
+  "author": "Shin Akira",
   "homepage": "/admin",
   "proxy": "http://localhost:3000",
   "dependencies": {
@@ -15,7 +16,8 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "axios": "^1.19.0"
+    "axios": "^1.19.0",
+    "react-router-dom": "^7.18.2"
   },
   "scripts": {
     "start": "react-scripts start",

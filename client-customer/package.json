@@ -2,6 +2,7 @@
   "name": "client-customer",
   "version": "0.1.0",
   "private": true,
+  "author": "Shin Akira",
   "homepage": "/",
   "proxy": "http://localhost:3000",
   "dependencies": {

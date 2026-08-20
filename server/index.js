@@ -1,3 +1,9 @@
+require("dotenv").config();
+
+//! Dùng đoạn code này nếu bạn bị lỗi
+const dns = require("node:dns/promises");
+dns.setServers(["1.1.1.1", "1.0.0.1"]);
+
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -16,6 +22,9 @@ app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
 app.get("/hello", (req, res) => {
   res.json({ message: "Hello from server!" });
 });
+
+// APIs
+app.use("/api/admin", require("./api/admin.js"));
 
 // Start Server (placed at the bottom)
 app.listen(PORT, () => {
