@@ -2,6 +2,8 @@
 README.md
 docs/
 labs/
+postman/
+.postman/
 # Logs
 logs
 *.log

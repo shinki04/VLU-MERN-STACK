@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { Component } from "react";
 import withRouter from "../utils/withRouter";
+import MyContext from "../contexts/MyContext";
 
 class ProductDetail extends Component {
+  static contextType = MyContext; // using this.context to access global state
   constructor(props) {
     super(props);
     this.state = {
@@ -87,8 +89,22 @@ class ProductDetail extends Component {
   // event-handlers
   btnAdd2CartClick(e) {
     e.preventDefault();
-    // This will be implemented in detail in Lab 7. For now, alert the action.
-    alert("Add to cart: " + this.state.product.name + " x " + this.state.txtQuantity);
+    const product = this.state.product;
+    const quantity = parseInt(this.state.txtQuantity);
+    if (quantity) {
+      const mycart = this.context.mycart;
+      const index = mycart.findIndex(x => x.product._id === product._id); // check if the _id exists in mycart
+      if (index === -1) { // not found, push newItem
+        const newItem = { product: product, quantity: quantity };
+        mycart.push(newItem);
+      } else { // increasing the quantity
+        mycart[index].quantity += quantity;
+      }
+      this.context.setMycart(mycart);
+      alert('OK BABY!');
+    } else {
+      alert('Please input quantity');
+    }
   }
 
   // apis
