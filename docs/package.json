@@ -12,13 +12,7 @@
   "keywords": [],
   "author": "Shin Akira",
   "license": "ISC",
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "^11.10.0",
-      "onFail": "download"
-    }
-  },
+  "packageManager": "pnpm@11.10.0",
   "type": "module",
   "devDependencies": {
     "vitepress": "2.0.0-alpha.19"
