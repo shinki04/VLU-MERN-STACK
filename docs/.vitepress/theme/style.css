@@ -1,0 +1,18 @@
+/* Các class tiện ích có sẵn */
+.cmd-server { --prompt: '/server/ '; }
+.client-customer { --prompt: '/client-customer/ '; }
+.client-admin  { --prompt: '/client-admin/ '; }
+.project-name {--prompt: '/{project-name}/'}
+
+/* Có thể dùng trực tiếp thẻ style="--prompt: 'tuỳ-ý$ '" để linh hoạt */
+.cmd-server div[class*="language-"] pre code::before,
+.client-customer div[class*="language-"] pre code::before,
+.client-admin div[class*="language-"] pre code::before,
+.project-name div[class*="language-"] pre code::before,
+.cmd-prompt div[class*="language-"] pre code::before {
+  content: var(--prompt, '$ ');
+  /* color: #888; Màu xám mờ giống terminal */
+  user-select: none; /* Không cho phép bôi đen đoạn này */
+  float: left; /* Để prompt nằm cùng dòng và thừa hưởng màu nền khi line được highlight */
+  background-color: transparent !important;
+}
