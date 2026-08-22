@@ -8,6 +8,7 @@ const JwtUtil = require("../utils/JwtUtil");
 const AdminDAO = require("../models/AdminDAO");
 const CategoryDAO = require("../models/CategoryDAO");
 const ProductDAO = require("../models/ProductDAO");
+const OrderDAO = require("../models/OrderDAO");
 
 // Login
 router.post("/login", async function (req, res) {
@@ -118,6 +119,19 @@ router.put("/products/:id", JwtUtil.checkToken, async function (req, res) {
 router.delete("/products/:id", JwtUtil.checkToken, async function (req, res) {
   const _id = req.params.id;
   const result = await ProductDAO.delete(_id);
+  res.json(result);
+});
+
+// order
+router.get("/orders", JwtUtil.checkToken, async function (req, res) {
+  const orders = await OrderDAO.selectAll();
+  res.json(orders);
+});
+
+router.put("/orders/status/:id", JwtUtil.checkToken, async function (req, res) {
+  const _id = req.params.id;
+  const newStatus = req.body.status;
+  const result = await OrderDAO.update(_id, newStatus);
   res.json(result);
 });
 
