@@ -179,6 +179,13 @@ After downloading successfully, `server/package.json` file will update `dependen
 
 - Test with Postman: (GET) `http://localhost:3000/hello`
 
+Response result:
+```json
+{
+  "message": "Hello from server!"
+}
+```
+
 ##### Project Client-admin
 - Create client-admin project:
 <div class="project-name">
