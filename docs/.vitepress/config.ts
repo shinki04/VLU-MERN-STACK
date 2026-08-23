@@ -35,7 +35,9 @@ export default defineConfig({
             items: [
               { text: 'Hotmail Error', link: '/en/troubleshooting/hotmail' },
               { text: 'MongoDB DNS Error', link: '/en/troubleshooting/mongodb-dns' },
-              { text: 'Lab 4 PUT Product Error', link: '/en/troubleshooting/lab4-put-product' }
+              { text: 'MongoDB Auth Error', link: '/en/troubleshooting/mongodb-auth' },
+              { text: 'Lab 4 PUT Product Error', link: '/en/troubleshooting/lab4-put-product' },
+              { text: 'Auth Token Error', link: '/en/troubleshooting/token-error' }
             ]
           }
         ]
@@ -71,7 +73,9 @@ export default defineConfig({
             items: [
               { text: 'Lỗi Hotmail', link: '/vi/troubleshooting/hotmail' },
               { text: 'Lỗi MongoDB DNS', link: '/vi/troubleshooting/mongodb-dns' },
-              { text: 'Sửa lỗi Lab 4', link: '/vi/troubleshooting/lab4-put-product' }
+              { text: 'Lỗi MongoDB Auth', link: '/vi/troubleshooting/mongodb-auth' },
+              { text: 'Sửa lỗi Lab 4', link: '/vi/troubleshooting/lab4-put-product' },
+              { text: 'Lỗi Auth Token', link: '/vi/troubleshooting/token-error' }
             ]
           }
         ]
@@ -91,6 +95,9 @@ export default defineConfig({
     ],
     outline:{
       level: [1,8]
+    },
+    search: {
+      provider: 'local'
     }
   },
     markdown: {
@@ -98,5 +105,6 @@ export default defineConfig({
       // image lazy loading is disabled by default
       lazyLoad: true
     }
-  }
+  },
+
 })
