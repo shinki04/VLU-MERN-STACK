@@ -10,8 +10,14 @@ Bạn có thể sử dụng Gmail để thay thế bởi vì Hotmail đã bị M
 :::
 
 :::details XEM THÊM {open}
-  Bạn có thể xem hướng dẫn về cách cấu hình gmail để sử dụng cho Nodemailder [tại đây](https://www.youtube.com/watch?v=cqdAS49RthQ)
-::: 
+  Bạn có thể tham khảo các tài liệu dưới đây để cấu hình Gmail sử dụng với Nodemailer:
+
+  - [Hướng dẫn chi tiết bằng văn bản](https://mailtrap.io/blog/nodemailer-gmail/) – Mailtrap hướng dẫn khá đầy đủ và chi tiết, phù hợp nếu bạn muốn làm từng bước. 
+  - [Hướng dẫn bằng video](https://www.youtube.com/watch?v=YFYQucqgvN4) – Hướng dẫn cấu hình Gmail và sử dụng với Nodemailer từ tài liệu văn bản của Mailtrap. 
+  - [Hướng dẫn bằng video](https://www.youtube.com/watch?v=cqdAS49RthQ) – Một video hướng dẫn khác về cách thiết lập Gmail cho Nodemailer. 
+
+:::
+
 ## Cấu hình Gmail
 
 
@@ -89,14 +95,16 @@ EMAIL_PASSWORD="abcd efgh ijkl mnop"
 - **Cách 2 (Dùng ngoặc kép):** Bạn đặt toàn bộ mật khẩu vào trong cặp dấu ngoặc kép `" "`. Bộ phân tích `.env` sẽ tự hiểu khoảng trắng là một phần của mật khẩu. Đừng xóa thủ công khoảng trắng trong code NodeJS, vì NodeJS sẽ đọc chuỗi trích dẫn chính xác như Google đã tạo.
 
 ## Cập nhật code cấu hình
-Nhớ cập nhật `service` thành `"gmail"` ở file `server/utils/EmailUtil.js`. Hầu hết mọi người đồng ý rằng cấu hình phổ biến là thiết lập `secure: true` với cổng `465` hoặc `secure: false` với cổng `587`.
+Nhớ cập nhật cấu hình ở file `server/utils/EmailUtil.js`.
+Hầu hết mọi người đồng ý rằng cấu hình phổ biến là thiết lập `secure: true` với cổng `465` hoặc `secure: false` với cổng `587`.
+
 Ví dụ:
 ```js
-const transporter = nodemailer.createTransport({
-  service: "hotmail",// [!code --]
-  service: "gmail", // [!code ++]
-  // port: 587, // [!code ++]
-  // secure: false, // [!code ++]
+const transporter = nodemailer.createTransport({ // [!code focus]
+  service: "hotmail",// [!code --] [!code focus]
+  host: "smtp.gmail.com",  // [!code ++] [!code focus]
+  port: 587,  // [!code ++] [!code focus]
+  secure: false, // use false for STARTTLS [!code ++] [!code focus]
   auth: {
     user: process.env.EMAIL || MyConstants.EMAIL_USER,
     pass: process.env.EMAIL_PASSWORD || MyConstants.EMAIL_PASS,

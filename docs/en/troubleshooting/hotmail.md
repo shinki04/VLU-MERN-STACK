@@ -10,7 +10,12 @@ Read more here:
 :::
 
 :::details READ MORE {open}
-  You can watch the guide on how to configure Gmail for use with Nodemailer [here](https://www.youtube.com/watch?v=cqdAS49RthQ)
+  You can refer to the following documents to configure Gmail for use with Nodemailer:
+
+  - [Detailed written guide](https://mailtrap.io/blog/nodemailer-gmail/) – Mailtrap provides a comprehensive and detailed guide, suitable if you want to follow step-by-step.
+  - [Video guide](https://www.youtube.com/watch?v=YFYQucqgvN4) – A video guide on configuring Gmail and using it with Nodemailer from Mailtrap's written documentation.
+  - [Video guide](https://www.youtube.com/watch?v=cqdAS49RthQ) – Another video guide on setting up Gmail for Nodemailer.
+
 :::
 
 ## Gmail Configuration
@@ -91,15 +96,16 @@ EMAIL_PASSWORD="abcd efgh ijkl mnop"
 
 ## Update Configuration Code
 
-Remember to update the `service` to `"gmail"` in the `server/utils/EmailUtil.js` file. Most people agree that a common configuration is to set `secure: true` with port `465` or `secure: false` with port `587`.
+Remember to update the configuration in the `server/utils/EmailUtil.js` file.
+Most people agree that a common configuration is to set `secure: true` with port `465` or `secure: false` with port `587`.
 
 Example:
 ```js
-const transporter = nodemailer.createTransport({
-  service: "hotmail",// [!code --]
-  service: "gmail", // [!code ++]
-  // port: 587, // [!code ++]
-  // secure: false, // [!code ++]
+const transporter = nodemailer.createTransport({ // [!code focus]
+  service: "hotmail",// [!code --] [!code focus]
+  host: "smtp.gmail.com",  // [!code ++] [!code focus]
+  port: 587,  // [!code ++] [!code focus]
+  secure: false, // use false for STARTTLS [!code ++] [!code focus]
   auth: {
     user: process.env.EMAIL || MyConstants.EMAIL_USER,
     pass: process.env.EMAIL_PASSWORD || MyConstants.EMAIL_PASS,
