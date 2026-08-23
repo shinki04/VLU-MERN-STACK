@@ -39,7 +39,50 @@ router.get('/categories', JwtUtil.checkToken, async function (req, res) {
 
 ###### Kiểm tra với Postman
 - (GET) `http://localhost:3000/api/admin/categories`
-- Headers: `"x-access-token": <token>`
+  - Headers: `"x-access-token": <admin-token>`
+
+  - Kết quả:
+    ```json
+    [
+      {
+          "_id": "6288b164708fabf8ab29ca0a",
+          "name": "iPad"
+      },
+      {
+          "_id": "6288b174708fabf8ab29ca0d",
+          "name": "iPhone"
+      },
+      {
+          "_id": "6288b180708fabf8ab29ca10",
+          "name": "Macbook"
+      }
+    ]
+    ```
+
+    ::: warning WARNING
+    Nếu kết quả trả về là: 
+    ```json
+    {
+      "success": false,
+      "message": "Auth token is not supplied"
+    }
+    ```
+    Vui lòng kiểm tra lại Headers: `"x-access-token": <admin-token>`.
+    
+    Trong đó, `<admin-token>` được lấy bằng cách thực hiện đăng nhập tài khoản admin qua Postman:
+    - **Method:** `POST`
+    - **URL:** `http://localhost:3000/api/admin/login`
+    - **Body (raw + JSON):**
+      ```json
+      {
+        "username": "admin",
+        "password": "123"
+      }
+      ```
+    - **Response:** Sao chép chuỗi `token` trả về từ kết quả đăng nhập thành công.
+    
+    Xem chi tiết hướng dẫn [tại đây](/vi/labs/lab2#kiem-tra-voi-postman) hoặc xem cách sửa [lỗi xác thực token ở trang Khắc phục sự cố](/vi/troubleshooting/token-error).
+    :::
 
 ##### Client-admin
 
@@ -240,9 +283,20 @@ router.post('/categories', JwtUtil.checkToken, async function (req, res) {
 
 ###### Kiểm tra với Postman
 - (POST) `http://localhost:3000/api/admin/categories`
-- Headers: `"x-access-token": <token>`
-- Body (raw+JSON): `{ "name": "Watch" }`
-
+- Headers: `"x-access-token": <admin-token>`
+- Body (raw+JSON): 
+```json
+{
+  "name": "Watch"
+}
+```
+- Kết quả: 
+```json
+{
+    "_id": "6288b164708fabf8ab29ca0a",
+    "name": "Watch"
+}
+```
 ##### Client-admin
 
 Cập nhật file `client-admin/src/components/CategoryComponent.js`:
@@ -355,8 +409,19 @@ router.put('/categories/:id', JwtUtil.checkToken, async function (req, res) {
 ###### Kiểm tra với Postman
 - (PUT) `http://localhost:3000/api/admin/categories/<id>`
 - Headers: `"x-access-token": <token>`
-- Body (raw+JSON): `{ "name": "Watch2" }`
-
+- Body (raw+JSON): 
+```json
+{
+  "name": "Watch2"
+}
+```
+  - Kết quả: 
+```json
+{
+    "_id": "6288b164708fabf8ab29ca0a",
+    "name": "Watch2"
+}
+```
 ##### Client-admin
 
 Cập nhật file `client-admin/src/components/CategoryDetailComponent.js`:
@@ -437,7 +502,15 @@ router.delete('/categories/:id', JwtUtil.checkToken, async function (req, res) {
 ###### Kiểm tra với Postman
 - (DELETE) `http://localhost:3000/api/admin/categories/<id>`
 - Headers: `"x-access-token": <token>`
-
+  - Ví dụ Category id của tôi là `6a8aceb8a96b824a7b91a27b` thì URL sẽ là `http://localhost:3000/api/admin/categories/6a8aceb8a96b824a7b91a27b`.
+  - Kết quả: 
+  ```json
+  {
+      "_id": "6288b164708fabf8ab29ca0a",
+      "name": "Watch2"
+  }
+  ```
+  > Nếu sản phẩm đã bị xóa trước đó thì kết quả sẽ trả về `null`
 ##### Client-admin
 
 Cập nhật file `client-admin/src/components/CategoryDetailComponent.js`:

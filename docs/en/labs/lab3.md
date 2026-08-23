@@ -39,7 +39,50 @@ router.get('/categories', JwtUtil.checkToken, async function (req, res) {
 
 ###### Test with Postman
 - (GET) `http://localhost:3000/api/admin/categories`
-- Headers: `"x-access-token": <token>`
+  - Headers: `"x-access-token": <admin-token>`
+
+  - Result:
+    ```json
+    [
+      {
+          "_id": "6288b164708fabf8ab29ca0a",
+          "name": "iPad"
+      },
+      {
+          "_id": "6288b174708fabf8ab29ca0d",
+          "name": "iPhone"
+      },
+      {
+          "_id": "6288b180708fabf8ab29ca10",
+          "name": "Macbook"
+      }
+    ]
+    ```
+
+    ::: warning WARNING
+    If the returned result is: 
+    ```json
+    {
+      "success": false,
+      "message": "Auth token is not supplied"
+    }
+    ```
+    Please check Headers: `"x-access-token": <admin-token>`.
+    
+    Here, `<admin-token>` is obtained by logging in as admin through Postman:
+    - **Method:** `POST`
+    - **URL:** `http://localhost:3000/api/admin/login`
+    - **Body (raw + JSON):**
+      ```json
+      {
+        "username": "admin",
+        "password": "123"
+      }
+      ```
+    - **Response:** Copy the `token` string returned in the successful login response.
+    
+    See detailed instructions [here](/en/labs/lab2#test-with-postman) or see how to fix [token authentication errors in the Troubleshooting page](/en/troubleshooting/token-error).
+    :::
 
 ##### Client-admin
 
@@ -240,8 +283,20 @@ router.post('/categories', JwtUtil.checkToken, async function (req, res) {
 
 ###### Test with Postman
 - (POST) `http://localhost:3000/api/admin/categories`
-- Headers: `"x-access-token": <token>`
-- Body (raw+JSON): `{ "name": "Watch" }`
+- Headers: `"x-access-token": <admin-token>`
+- Body (raw+JSON): 
+```json
+{
+  "name": "Watch"
+}
+```
+- Result: 
+```json
+{
+    "_id": "6288b164708fabf8ab29ca0a",
+    "name": "Watch"
+}
+```
 
 ##### Client-admin
 
@@ -355,7 +410,19 @@ router.put('/categories/:id', JwtUtil.checkToken, async function (req, res) {
 ###### Test with Postman
 - (PUT) `http://localhost:3000/api/admin/categories/<id>`
 - Headers: `"x-access-token": <token>`
-- Body (raw+JSON): `{ "name": "Watch2" }`
+- Body (raw+JSON): 
+```json
+{
+  "name": "Watch2"
+}
+```
+  - Result: 
+```json
+{
+    "_id": "6288b164708fabf8ab29ca0a",
+    "name": "Watch2"
+}
+```
 
 ##### Client-admin
 
@@ -437,6 +504,15 @@ router.delete('/categories/:id', JwtUtil.checkToken, async function (req, res) {
 ###### Test with Postman
 - (DELETE) `http://localhost:3000/api/admin/categories/<id>`
 - Headers: `"x-access-token": <token>`
+  - For example, if my Category id is `6a8aceb8a96b824a7b91a27b`, then the URL will be `http://localhost:3000/api/admin/categories/6a8aceb8a96b824a7b91a27b`
+  - Result: 
+  ```json
+  {
+      "_id": "6288b164708fabf8ab29ca0a",
+      "name": "Watch2"
+  }
+  ```
+  > If the category was deleted previously, the returned result will be `null`
 
 ##### Client-admin
 
