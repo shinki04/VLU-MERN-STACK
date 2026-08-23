@@ -49,7 +49,60 @@ router.get('/products', JwtUtil.checkToken, async function (req, res) {
 
 ###### Kiểm tra với Postman
 - (GET) `http://localhost:3000/api/admin/products?page=1`
-- Headers: `"x-access-token": <token>`
+- Headers: `"x-access-token": <admin-token>`
+  - Kết quả:
+  ```json
+  {
+      "products": [
+          {
+              "_id": "6288bb8505f9bb7c9f45cc18",
+              "name": "iPad Air",
+              "price": 10,
+              "image": "/9j/4AAQSkZJRg...",
+              "cdate": "1653128201479",
+              "category": {
+                  "_id": "6288b164708fabf8ab29ca0a",
+                  "name": "iPad"
+              }         
+          },
+          {
+              "_id": "6288bc0940a1d1225e22805d",
+              "name": "iPad Mini",
+              "price": 20,
+              "image": "/9j/4AAQSkZJRg...",
+              "cdate": "1653128201479Z",
+              "category": {
+                  "_id": "6288b164708fabf8ab29ca0a",
+                  "name": "iPad"
+              }         
+          },
+          {
+              "_id": "6288bd295ddf350614f2a916",
+              "name": "iPad Pro",
+              "price": 30,
+              "image": "/9j/4AAQSkZJRg...",
+              "cdate": "1653128489604",
+              "category": {
+                  "_id": "6288b164708fabf8ab29ca0a",
+                  "name": "iPad"
+              }         
+          },
+          {
+              "_id": "6288bdda3afd8004d22ad823",
+              "name": "iPhone 11 Pro Max",
+              "price": 40,
+              "image": "/9j/4AAQSkZJRg...",
+              "cdate": "1653128666350",
+              "category": {
+                  "_id": "6288b174708fabf8ab29ca0d",
+                  "name": "iPhone"
+              }         
+          }
+      ],
+      "noPages": 1,
+      "curPage": 1
+  }
+  ```
 
 ##### Client-admin
 
@@ -348,7 +401,33 @@ router.post('/products', JwtUtil.checkToken, async function (req, res) {
 ###### Kiểm tra với Postman
 - (POST) `http://localhost:3000/api/admin/products`
 - Headers: `"x-access-token": <token>`
-- Body (raw+JSON): `{ "name": "iWatch S7", "price": 130, "category": "644279d8146cdb5d63250036", "image": "/9j/4AAQSkZJRgABAQEAAAAAAAD/..." }`
+- Body (raw+JSON): 
+  ```json
+  {
+      "name": "iWatch S7",
+      "price": 130,
+      "category": "644279d8146cdb5d63250036",
+      "image": "/9j/4AAQSkZJRgABAQEAAAAAAAD/..."
+  }
+  ```
+  > Lưu ý: "image" là chuỗi base64 của ảnh. Bạn có thể lấy bằng cách dùng FileReader để đọc file ảnh và chuyển sang base64 hoặc bỏ qua image.
+
+  > Lưu ý: category là id của category. Bạn có thể lấy bằng cách dùng API get categories hoặc kiểm tra id category bằng MongoDB Compass hoặc MongoDB Atlas.
+
+  - Kết quả:
+  ```json
+  {
+    "_id": "6a8ad4eca96b824a7b91a27f",
+    "name": "iWatch S7",
+    "price": 130,
+    "cdate": 1787483372492,
+    "category": {
+        "_id": "6a8aceb3a96b824a7b91a27a",
+        "name": "Watch"
+    }
+  }
+  ```
+
 
 ##### Client-admin
 
@@ -446,11 +525,38 @@ router.put('/products', JwtUtil.checkToken, async function (req, res) { // [!cod
 ###### Kiểm tra với Postman
 - (PUT) `http://localhost:3000/api/admin/products/<id>`
 - Headers: `"x-access-token": <token>`
-- Body (raw+JSON): `{ "name": "iWatch S7", "price": 130, "category": "644279d8146cdb5d63250036", "image": "/9j/4AAQSkZJRgABAQEAAAAAAAD/..." }`
+- Body (raw+JSON): 
+```json
+{
+    "name": "iWatch S7",
+    "price": 130,
+    "category": "644279d8146cdb5d63250036",
+    "image": "/9j/4AAQSkZJRgABAQEAAAAAAAD/..."
+}
+```
+
+  > Lưu ý: "image" là chuỗi base64 của ảnh. Bạn có thể lấy bằng cách dùng FileReader để đọc file ảnh và chuyển sang base64 hoặc bỏ qua image.
+
+  > Lưu ý: category là id của category. Bạn có thể lấy bằng cách dùng API get categories hoặc kiểm tra id category bằng MongoDB Compass hoặc MongoDB Atlas.
+
+  - Kết quả:
+  ```json
+  {
+    "_id": "6a8ad4eca96b824a7b91a27f",
+    "name": "iWatch S7",
+    "price": 130,
+    "cdate": 1787483372492,
+    "category": {
+        "_id": "6a8aceb3a96b824a7b91a27a",
+        "name": "Watch"
+    }
+  }
+  ```
 
 ##### Client-admin
 
 Cập nhật file `client-admin/src/components/ProductDetailComponent.js`:
+
 ```js
 ...
 class ProductDetail extends Component {
@@ -521,7 +627,22 @@ router.delete('/products/:id', JwtUtil.checkToken, async function (req, res) {
 
 ###### Kiểm tra với Postman
 - (DELETE) `http://localhost:3000/api/admin/products/<id>`
-- Headers: `"x-access-token": <token>`
+  - Headers: `"x-access-token": <token>`
+  > Lưu ý: `<id>` là id của product muốn xóa.
+  Ví dụ `id` sản phẩm là `6288bdda3afd8004d22ad823` thì URL sẽ là `http://localhost:3000/api/admin/products/6288bdda3afd8004d22ad823`
+  - Kết quả: 
+  ```json
+  {
+      "_id": "6288bdda3afd8004d22ad823",
+      "name": "iPhone 11 Pro Max",
+      "price": 40,
+      "cdate": 1653128666350,
+      "category": {
+          "_id": "6288b174708fabf8ab29ca0d",
+          "name": "iPhone"
+      }
+  }
+  ```
 
 ##### Client-admin
 
