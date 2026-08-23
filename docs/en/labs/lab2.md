@@ -292,9 +292,51 @@ app.use('/api/admin', require('./api/admin.js'));
 
 ##### Test with Postman
 - (POST) `http://localhost:3000/api/admin/login`
-  - Body (raw+JSON): `{ "username": "admin", "password": "123" }`
+  - Body (raw+JSON): 
+    ```json
+      { 
+        "username": "admin", 
+        "password": "123" 
+      }
+    ```
+  - Result:
+
+  ```json
+  {
+    "success": true,
+    "message": "Authentication successful",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIxMjMiLCJpYXQiOjE3ODc0NzkzNjYsImV4cCI6MTc4NzU2ODAwN30.AG3n4IJPSN5FVvZc5JUCAOurwSqPsVvcrhqynpl3tKA"
+  }
+  ```
+  ::: warning WARNING
+  If the returned result is:
+
+  ```json
+  {
+    "success": false,
+    "message": "Incorrect username or password"
+  }
+  ```
+
+  Please double check the admin account information in the database.
+
+  If there is no admin data yet, you can import data from the `admins.json` file into the `shoppingonline` database following the instructions [here](/en/labs/lab1#mongodb-atlas).
+
+  You can get the `admins.json` file [here](https://github.com/tsonkk/shoppingonline-resources/blob/main/mongodb/admins.json).
+
+  :::
+
 - (GET) `http://localhost:3000/api/admin/token`
   - Headers: `"x-access-token": <token>`
+
+  - Result:
+    ```json
+      {
+          "success": true,
+          "message": "Token is valid",
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIxMjMiLCJpYXQiOjE3ODc0NzkzNjYsImV4cCI6MTc4NzU2ODAwN30.AG3n4IJPSN5FVvZc5JUCAOurwSqPsVvcrhqynpl3tKA"
+      }
+    ```
 
 #### Client-admin
 

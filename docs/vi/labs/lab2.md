@@ -293,9 +293,52 @@ app.use('/api/admin', require('./api/admin.js'));
 
 ##### Kiểm tra với Postman
 - (POST) `http://localhost:3000/api/admin/login`
-  - Body (raw+JSON): `{ "username": "admin", "password": "123" }`
+  - Body (raw+JSON): 
+    ```json
+      { 
+        "username": "admin", 
+        "password": "123" 
+      }
+    ```
+  - Kết quả:
+
+  ```json
+  {
+    "success": true,
+    "message": "Authentication successful",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIxMjMiLCJpYXQiOjE3ODc0NzkzNjYsImV4cCI6MTc4NzU2NTc2Nn0.xu9dwNQMkc0-sOPNxnKUzFwyqtId2a3YSW72IIBo7UE"
+  }
+  ```
+  ::: warning WARNING
+  Nếu kết quả trả về là:
+
+  ```json
+  {
+    "success": false,
+    "message": "Incorrect username or password"
+  }
+  ```
+
+  Vui lòng kiểm tra lại thông tin tài khoản admin trong database.
+
+  Nếu chưa có dữ liệu admin, bạn có thể thêm lại dữ liệu từ file `admins.json` vào database `shoppingonline` theo hướng dẫn [tại đây](/vi/labs/lab1.html#mongodb-atlas).
+
+  Bạn có thể lấy file `admins.json` [tại đây](https://github.com/tsonkk/shoppingonline-resources/blob/main/mongodb/admins.json).
+
+
+  :::
+
 - (GET) `http://localhost:3000/api/admin/token`
   - Headers: `"x-access-token": <token>`
+
+  - Kết quả:
+    ```json
+      {
+          "success": true,
+          "message": "Token is valid",
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIxMjMiLCJpYXQiOjE3ODc0NzkzNjYsImV4cCI6MTc4NzU2NTc2Nn0.xu9dwNQMkc0-sOPNxnKUzFwyqtId2a3YSW72IIBo7UE"
+      }
+    ```
 
 #### Client-admin
 
