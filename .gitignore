@@ -2,6 +2,8 @@
 labs/
 postman/
 .postman/
+**/README.md
+!/README.md
 # Logs
 logs
 *.log
