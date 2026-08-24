@@ -58,22 +58,22 @@ JWT_EXPIRES=86400000
 ### 2. Khởi chạy Server Backend
 ```bash
 cd server
-pnpm install
-pnpm dev
+npm install
+npm dev
 ```
 
 ### 3. Khởi chạy Client Admin (Quản trị viên)
 ```bash
 cd client-admin
-pnpm install
-pnpm start
+npm install
+npm start
 ```
 
 ### 4. Khởi chạy Client Customer (Khách hàng)
 ```bash
 cd client-customer
-pnpm install
-pnpm start
+npm install
+npm start
 ```
 
 ### 5. Khởi chạy trang Tài liệu Lab (Vitepress)
@@ -138,22 +138,22 @@ JWT_EXPIRES=86400000
 ### 2. Run Backend Server
 ```bash
 cd server
-pnpm install
-pnpm dev
+npm install
+npm dev
 ```
 
 ### 3. Run Client Admin
 ```bash
 cd client-admin
-pnpm install
-pnpm start
+npm install
+npm start
 ```
 
 ### 4. Run Client Customer
 ```bash
 cd client-customer
-pnpm install
-pnpm start
+npm install
+npm start
 ```
 
 ### 5. Run Lab Documentation (Vitepress)
