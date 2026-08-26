@@ -38,12 +38,13 @@ Nếu trạng thái ảo hóa là **Disabled**, bạn có thể truy cập BIOS/
 
 ---
 
-### Bước 3: Kích hoạt WSL 2 và Virtual Machine Platform bằng Windows GUI
+### Bước 3: Kích hoạt WSL 2, Virtual Machine Platform và Hyper-V bằng Windows GUI
 Thay vì dùng dòng lệnh, bạn có thể dễ dàng kích hoạt các thành phần ảo hóa của hệ điều hành thông qua giao diện Windows:
 1. Nhấn phím `Windows`, nhập tìm kiếm cụm từ **"Turn Windows features on or off"** (hoặc **"Bật hoặc tắt tính năng Windows"**) và nhấn Enter để mở cửa sổ tính năng.
-2. Cuộn tìm và đánh dấu tích chọn (check) vào hai ô tính năng sau:
+2. Cuộn tìm và đánh dấu tích chọn (check) vào các ô tính năng sau:
    - **Virtual Machine Platform** (Nền tảng máy ảo)
    - **Windows Subsystem for Linux** (Subsystem của Windows dành cho Linux)
+   - **Hyper-V** (Lưu ý: Chỉ khả dụng trên Windows Pro, Enterprise hoặc Education. Nếu bạn đang sử dụng phiên bản Windows Home, bạn sẽ không thấy tùy chọn Hyper-V này. Đừng lo lắng, Docker Desktop vẫn hoạt động tốt thông qua nền tảng WSL 2 đã bật ở trên).
 3. Nhấn **OK** và đợi Windows tự động cài đặt các cấu hình cần thiết.
 4. Chọn **Restart now** (Khởi động lại ngay) để hệ thống áp dụng thay đổi.
 

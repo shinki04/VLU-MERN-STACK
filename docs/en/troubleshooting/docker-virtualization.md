@@ -38,12 +38,13 @@ If the virtualization status is **Disabled**, you can boot into the BIOS/UEFI se
 
 ---
 
-### Step 3: Activate WSL 2 and Virtual Machine Platform via Windows GUI
+### Step 3: Activate WSL 2, Virtual Machine Platform, and Hyper-V via Windows GUI
 Instead of command-line tools, you can easily enable the operating system's virtualization features using the Windows interface:
 1. Press the `Windows` key, search for **"Turn Windows features on or off"**, and press Enter to open the feature configuration window.
 2. Scroll down and check the boxes for:
    - **Virtual Machine Platform**
    - **Windows Subsystem for Linux**
+   - **Hyper-V** (Note: Only available on Windows Pro, Enterprise, or Education editions. If you are using Windows Home edition, you will not see this option. Do not worry, Docker Desktop can still run perfectly using the WSL 2 backend enabled above).
 3. Click **OK** and wait for Windows to install the necessary files.
 4. Click **Restart now** to reboot your computer and apply the changes.
 
