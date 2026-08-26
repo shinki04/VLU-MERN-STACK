@@ -1,5 +1,4 @@
 import { defineConfig } from 'vitepress'
-
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Mern Stack",
@@ -44,7 +43,8 @@ export default defineConfig({
               { text: 'MongoDB DNS Error', link: '/en/troubleshooting/mongodb-dns' },
               { text: 'MongoDB Auth Error', link: '/en/troubleshooting/mongodb-auth' },
               { text: 'Lab 4 PUT Product Error', link: '/en/troubleshooting/lab4-put-product' },
-              { text: 'Auth Token Error', link: '/en/troubleshooting/token-error' }
+              { text: 'Auth Token Error', link: '/en/troubleshooting/token-error' },
+              { text: 'Docker Virtualization Error', link: '/en/troubleshooting/docker-virtualization' }
             ]
           },
         ]
@@ -90,7 +90,8 @@ export default defineConfig({
               { text: 'Lỗi MongoDB DNS', link: '/vi/troubleshooting/mongodb-dns' },
               { text: 'Lỗi MongoDB Auth', link: '/vi/troubleshooting/mongodb-auth' },
               { text: 'Sửa lỗi Lab 4', link: '/vi/troubleshooting/lab4-put-product' },
-              { text: 'Lỗi Auth Token', link: '/vi/troubleshooting/token-error' }
+              { text: 'Lỗi Auth Token', link: '/vi/troubleshooting/token-error' },
+              { text: 'Lỗi Docker Virtualization', link: '/vi/troubleshooting/docker-virtualization' }
             ]
           }
         ]
