@@ -25,24 +25,27 @@ Trước tiên, bạn cần xác minh xem phần cứng máy tính của mình �
 
 ---
 
-### Bước 2: Bật ảo hóa (Virtualization) trong BIOS/UEFI
-Nếu trạng thái hiển thị là **Disabled**, bạn cần khởi động lại máy để vào BIOS/UEFI bật ảo hóa:
-1. Khởi động lại máy tính. Trong quá trình máy bắt đầu lên, nhấn liên tục phím truy cập BIOS (thường là `F2`, `F10`, `F12` hoặc `Delete` tùy dòng máy HP, Dell, Asus, Lenovo, Acer...).
-2. Tìm kiếm mục cấu hình liên quan đến CPU (thường nằm ở tab **Advanced**, **CPU Configuration** hoặc **Chipset**):
+### Bước 2: Bật ảo hóa (Virtualization) trong BIOS/UEFI thông qua Windows Settings
+Nếu trạng thái ảo hóa là **Disabled**, bạn có thể truy cập BIOS/UEFI trực tiếp từ Windows Settings mà không cần căn phím nhấn khi khởi động:
+1. Mở ứng dụng **Settings** (Cài đặt) trên Windows (phím tắt `Windows + I`).
+2. Chọn **System** (Hệ thống) -> **Recovery** (Phục hồi).
+3. Tại mục **Advanced startup** (Khởi động nâng cao), nhấn nút **Restart now** (Khởi động lại ngay) và xác nhận restart.
+4. Máy tính sẽ khởi động lại vào màn hình xanh tùy chọn của Windows. Nhấp chọn: **Troubleshoot** (Khắc phục sự cố) -> **Advanced options** (Tùy chọn nâng cao) -> **UEFI Firmware Settings** và nhấn **Restart**.
+5. Máy tính sẽ tự động truy cập thẳng vào giao diện cài đặt BIOS/UEFI. Tìm kiếm mục cấu hình CPU (thường ở tab *Advanced*, *CPU Configuration* hoặc *Chipset*):
    - **Đối với CPU Intel:** Tìm và chọn **Enabled** cho mục **Intel Virtualization Technology**, **Intel VT-x**, hoặc **Vanderpool**.
    - **Đối với CPU AMD:** Tìm và chọn **Enabled** cho mục **SVM Mode** hoặc **AMD-V**.
-3. Nhấn phím `F10`, chọn **Yes** để lưu cấu hình và khởi động lại vào Windows. Sau khi vào Windows, kiểm tra lại Task Manager xem đã chuyển sang **Enabled** chưa.
+6. Nhấn phím `F10`, chọn **Yes** để lưu cấu hình và khởi động lại.
 
 ---
 
-### Bước 3: Kích hoạt WSL 2 và Virtual Machine Platform trên Windows
-Docker Desktop yêu cầu các tính năng nền của Windows dưới đây hoạt động bình thường:
-1. Mở **PowerShell** bằng quyền Administrator (nhấp chuột phải vào nút Start -> chọn *Terminal (Admin)* hoặc *PowerShell (Admin)*).
-2. Chạy câu lệnh sau để cài đặt và kích hoạt toàn bộ các tính năng ảo hóa hệ thống của Windows:
-   ```powershell
-   wsl.exe --install --no-distribution
-   ```
-3. Sau khi lệnh chạy hoàn tất, **bắt buộc phải khởi động lại máy tính** để Windows áp dụng các thay đổi.
+### Bước 3: Kích hoạt WSL 2 và Virtual Machine Platform bằng Windows GUI
+Thay vì dùng dòng lệnh, bạn có thể dễ dàng kích hoạt các thành phần ảo hóa của hệ điều hành thông qua giao diện Windows:
+1. Nhấn phím `Windows`, nhập tìm kiếm cụm từ **"Turn Windows features on or off"** (hoặc **"Bật hoặc tắt tính năng Windows"**) và nhấn Enter để mở cửa sổ tính năng.
+2. Cuộn tìm và đánh dấu tích chọn (check) vào hai ô tính năng sau:
+   - **Virtual Machine Platform** (Nền tảng máy ảo)
+   - **Windows Subsystem for Linux** (Subsystem của Windows dành cho Linux)
+3. Nhấn **OK** và đợi Windows tự động cài đặt các cấu hình cần thiết.
+4. Chọn **Restart now** (Khởi động lại ngay) để hệ thống áp dụng thay đổi.
 
 ---
 

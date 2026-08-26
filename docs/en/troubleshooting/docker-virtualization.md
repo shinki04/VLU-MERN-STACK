@@ -25,24 +25,27 @@ First, verify whether hardware virtualization is active on your host system:
 
 ---
 
-### Step 2: Enable Virtualization in BIOS/UEFI
-If the status is **Disabled**, you need to reboot into BIOS/UEFI to turn on CPU virtualization:
-1. Restart your computer. During boot, press the BIOS access key repeatedly (usually `F2`, `F10`, `F12`, or `Delete` depending on your motherboard brand like HP, Dell, Asus, Lenovo, Acer, etc.).
-2. Locate the CPU configurations menu (commonly found under **Advanced**, **CPU Configuration**, or **Chipset** tab):
+### Step 2: Enable Virtualization in BIOS/UEFI via Windows Settings
+If the virtualization status is **Disabled**, you can boot into the BIOS/UEFI settings directly from Windows Settings without pressing boot keys:
+1. Open Windows **Settings** (shortcut `Windows + I`).
+2. Go to **System** -> **Recovery**.
+3. Under **Advanced startup**, click the **Restart now** button and confirm.
+4. Your computer will reboot into a blue recovery screen. Select: **Troubleshoot** -> **Advanced options** -> **UEFI Firmware Settings** and click **Restart**.
+5. The computer will automatically boot into the BIOS/UEFI setup. Locate CPU settings (typically under *Advanced*, *CPU Configuration*, or *Chipset*):
    - **For Intel CPUs:** Find and set **Intel Virtualization Technology**, **Intel VT-x**, or **Vanderpool** to **Enabled**.
    - **For AMD CPUs:** Find and set **SVM Mode** or **AMD-V** to **Enabled**.
-3. Press `F10`, select **Yes** to save settings and restart your computer into Windows. Re-check the Virtualization status in Task Manager to confirm it is now **Enabled**.
+6. Press `F10` and select **Yes** to save and reboot.
 
 ---
 
-### Step 3: Activate WSL 2 and Virtual Machine Platform on Windows
-Docker Desktop requires the underlying Windows features to be active:
-1. Open **PowerShell** as Administrator (right-click the Start menu button and choose *Terminal (Admin)* or *PowerShell (Admin)*).
-2. Execute the following command to enable all necessary virtualization features for WSL 2:
-   ```powershell
-   wsl.exe --install --no-distribution
-   ```
-3. Once completed, **you must restart your computer** for Windows to apply the feature additions.
+### Step 3: Activate WSL 2 and Virtual Machine Platform via Windows GUI
+Instead of command-line tools, you can easily enable the operating system's virtualization features using the Windows interface:
+1. Press the `Windows` key, search for **"Turn Windows features on or off"**, and press Enter to open the feature configuration window.
+2. Scroll down and check the boxes for:
+   - **Virtual Machine Platform**
+   - **Windows Subsystem for Linux**
+3. Click **OK** and wait for Windows to install the necessary files.
+4. Click **Restart now** to reboot your computer and apply the changes.
 
 ---
 
