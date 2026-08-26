@@ -23,6 +23,10 @@ Docker Desktop provides a user-friendly Graphical User Interface (GUI) to visual
   - **Virtualization Note:** Ensure Virtualization is enabled in your system's BIOS/UEFI settings (you can verify this under Task Manager -> Performance tab -> CPU on Windows).
   - **Start Docker:** After installation, launch the Docker Desktop app from your Desktop or Start menu.
 
+::: tip Installation Troubleshooting
+If you encounter the **"Docker Virtualization not enabled on your machine"** error during Docker Desktop startup, check out our self-help guide at [Docker Virtualization Troubleshooting](../troubleshooting/docker-virtualization.md).
+:::
+
 ### 3. Verify Docker is Running
 Launch the Docker Desktop application. Once running, open your Terminal and execute:
 ```bash

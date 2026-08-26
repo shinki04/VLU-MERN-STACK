@@ -23,6 +23,10 @@ Docker Desktop là phần mềm cung cấp giao diện đồ họa (GUI) trực 
   - **Lưu ý ảo hóa:** Đảm bảo bạn đã bật tính năng ảo hóa (Virtualization) trong BIOS/UEFI của máy tính (có thể kiểm tra trạng thái ảo hóa trong Task Manager -> tab Performance -> CPU).
   - **Khởi động Docker:** Sau khi cài đặt hoàn tất, hãy mở ứng dụng Docker Desktop từ màn hình Desktop hoặc menu Start.
 
+::: tip Khắc phục sự cố cài đặt
+Nếu trong quá trình khởi động hoặc chạy Docker Desktop bạn gặp lỗi **"Docker Virtualization not enabled on your machine"**, hãy tham khảo tài liệu hướng dẫn tự khắc phục tại [Hướng dẫn sửa lỗi ảo hóa Docker](../troubleshooting/docker-virtualization.md).
+:::
+
 ### 3. Kiểm tra Docker hoạt động
 Sau khi Docker Desktop đã chạy, hãy mở Terminal (hoặc PowerShell) và chạy lệnh sau để kiểm tra phiên bản Docker:
 ```bash
