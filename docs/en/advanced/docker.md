@@ -12,7 +12,7 @@ This guide walk you through containerizing each service in the MERN Stack projec
 Before you begin containerizing the project, ensure that the required tools are installed and running correctly on your system.
 
 ### 1. Install Node.js and npm
-The MERN Stack project requires Node.js and npm. A step-by-step guide to installing and verifying Node.js and npm versions is detailed in [Lab 1](../labs/lab1.md#nodejs). Please complete the Node.js installation in Lab 1 before proceeding.
+The MERN Stack project requires Node.js and npm. A step-by-step guide to installing and verifying Node.js and npm versions is detailed in [Lab 1](../labs/lab1#nodejs). Please complete the Node.js installation in Lab 1 before proceeding.
 
 ### 2. Download and Install Docker Desktop (Docker GUI)
 Docker Desktop provides a user-friendly Graphical User Interface (GUI) to visually manage containers, images, networks, and volumes without needing terminal commands.
@@ -24,7 +24,7 @@ Docker Desktop provides a user-friendly Graphical User Interface (GUI) to visual
   - **Start Docker:** After installation, launch the Docker Desktop app from your Desktop or Start menu.
 
 ::: tip Installation Troubleshooting
-If you encounter the **"Docker Virtualization not enabled on your machine"** error during Docker Desktop startup, check out our self-help guide at [Docker Virtualization Troubleshooting](../troubleshooting/docker-virtualization.md).
+If you encounter the **"Docker Virtualization not enabled on your machine"** error during Docker Desktop startup, check out our self-help guide at [Docker Virtualization Troubleshooting](../troubleshooting/docker-virtualization).
 :::
 
 ### 3. Verify Docker is Running

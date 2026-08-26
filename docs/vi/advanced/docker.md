@@ -24,7 +24,7 @@ Docker Desktop là phần mềm cung cấp giao diện đồ họa (GUI) trực 
   - **Khởi động Docker:** Sau khi cài đặt hoàn tất, hãy mở ứng dụng Docker Desktop từ màn hình Desktop hoặc menu Start.
 
 ::: tip Khắc phục sự cố cài đặt
-Nếu trong quá trình khởi động hoặc chạy Docker Desktop bạn gặp lỗi **"Docker Virtualization not enabled on your machine"**, hãy tham khảo tài liệu hướng dẫn tự khắc phục tại [Hướng dẫn sửa lỗi ảo hóa Docker](../troubleshooting/docker-virtualization.md).
+Nếu trong quá trình khởi động hoặc chạy Docker Desktop bạn gặp lỗi **"Docker Virtualization not enabled on your machine"**, hãy tham khảo tài liệu hướng dẫn tự khắc phục tại [Hướng dẫn sửa lỗi ảo hóa Docker](../troubleshooting/docker-virtualization).
 :::
 
 ### 3. Kiểm tra Docker hoạt động
