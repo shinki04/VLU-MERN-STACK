@@ -13,7 +13,8 @@ export default defineConfig({
         nav: [
           { text: 'Home', link: '/en/' },
           { text: 'Labs', link: '/en/labs/lab1' },
-          { text: 'Troubleshooting', link: '/en/troubleshooting/hotmail' }
+          { text: 'Advanced', link: '/en/advanced/docker' },
+          { text: 'Troubleshooting', link: '/en/troubleshooting/hotmail' },
         ],
         sidebar: [
           {
@@ -31,6 +32,12 @@ export default defineConfig({
             ]
           },
           {
+            text: 'Advanced',
+            items: [
+              { text: 'Docker', link: '/en/advanced/docker' }
+            ]
+          },
+          {
             text: 'Troubleshooting',
             items: [
               { text: 'Hotmail Error', link: '/en/troubleshooting/hotmail' },
@@ -39,7 +46,7 @@ export default defineConfig({
               { text: 'Lab 4 PUT Product Error', link: '/en/troubleshooting/lab4-put-product' },
               { text: 'Auth Token Error', link: '/en/troubleshooting/token-error' }
             ]
-          }
+          },
         ]
       }
     },
@@ -51,7 +58,9 @@ export default defineConfig({
         nav: [
           { text: 'Trang chủ', link: '/vi/' },
           { text: 'Bài thực hành', link: '/vi/labs/lab1' },
-          { text: 'Khắc phục sự cố', link: '/vi/troubleshooting/hotmail' }
+          { text: 'Nâng cao', link: '/vi/advanced/docker' },
+          { text: 'Khắc phục sự cố', link: '/vi/troubleshooting/hotmail' },
+
         ],
         sidebar: [
           {
@@ -66,6 +75,12 @@ export default defineConfig({
               { text: 'Lab 07', link: '/vi/labs/lab7' },
               { text: 'Lab 08', link: '/vi/labs/lab8' },
               { text: 'Lab 09', link: '/vi/labs/lab9' }
+            ]
+          },
+          {
+            text: 'Nâng cao',
+            items: [
+              { text: 'Docker', link: '/vi/advanced/docker' }
             ]
           },
           {
@@ -104,7 +119,21 @@ export default defineConfig({
     image: {
       // image lazy loading is disabled by default
       lazyLoad: true
-    }
+      },
+      config(md) {
+        const defaultRender = md.renderer.rules.link_open
+
+        md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
+          const token = tokens[idx]
+
+          token.attrSet('target', '_blank')
+          token.attrSet('rel', 'noopener noreferrer')
+
+          return defaultRender
+            ? defaultRender(tokens, idx, options, env, self)
+            : self.renderToken(tokens, idx, options)
+        }
+      },
   },
 
 })

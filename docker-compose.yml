@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  server:
+    build: ./server
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./server/.env
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+
+  client-admin:
+    build: ./client-admin
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+    stdin_open: true
+    tty: true
+    extra_hosts:
+      - "localhost:host-gateway"
+    volumes:
+      - ./client-admin:/app
+      - /app/node_modules
+    depends_on:
+      - server
+
+  client-customer:
+    build: ./client-customer
+    ports:
+      - "3002:3002"
+    environment:
+      - PORT=3002
+    stdin_open: true
+    tty: true
+    extra_hosts:
+      - "localhost:host-gateway"
+    volumes:
+      - ./client-customer:/app
+      - /app/node_modules
+    depends_on:
+      - server
