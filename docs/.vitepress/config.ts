@@ -121,20 +121,6 @@ export default defineConfig({
       // image lazy loading is disabled by default
       lazyLoad: true
       },
-      config(md) {
-        const defaultRender = md.renderer.rules.link_open
-
-        md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
-          const token = tokens[idx]
-
-          token.attrSet('target', '_blank')
-          token.attrSet('rel', 'noopener noreferrer')
-
-          return defaultRender
-            ? defaultRender(tokens, idx, options, env, self)
-            : self.renderToken(tokens, idx, options)
-        }
-      },
   },
 
 })
