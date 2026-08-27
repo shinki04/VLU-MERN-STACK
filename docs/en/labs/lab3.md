@@ -81,7 +81,7 @@ router.get('/categories', JwtUtil.checkToken, async function (req, res) {
       ```
     - **Response:** Copy the `token` string returned in the successful login response.
     
-    See detailed instructions [here](/en/labs/lab2#test-with-postman) or see how to fix [token authentication errors in the Troubleshooting page](/en/troubleshooting/token-error).
+    See detailed instructions [here](/en/labs/lab2.md#test-with-postman) or see how to fix [token authentication errors in the Troubleshooting page](/en/troubleshooting/token-error.md).
     :::
 
 ##### Client-admin

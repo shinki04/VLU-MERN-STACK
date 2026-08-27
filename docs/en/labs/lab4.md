@@ -518,7 +518,7 @@ router.put('/products', JwtUtil.checkToken, async function (req, res) { // [!cod
 ```
 
 ::: danger ERROR
-The 2 code snippets above contain an error. Guided fix and explanation are available [here](/en/troubleshooting/lab4-put-product).
+The 2 code snippets above contain an error. Guided fix and explanation are available [here](/en/troubleshooting/lab4-put-product.md).
 :::
 
 ###### Test with Postman

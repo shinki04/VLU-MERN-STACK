@@ -81,7 +81,7 @@ router.get('/categories', JwtUtil.checkToken, async function (req, res) {
       ```
     - **Response:** Sao chép chuỗi `token` trả về từ kết quả đăng nhập thành công.
     
-    Xem chi tiết hướng dẫn [tại đây](/vi/labs/lab2#kiem-tra-voi-postman) hoặc xem cách sửa [lỗi xác thực token ở trang Khắc phục sự cố](/vi/troubleshooting/token-error).
+    Xem chi tiết hướng dẫn [tại đây](/vi/labs/lab2.md#kiem-tra-voi-postman) hoặc xem cách sửa [lỗi xác thực token ở trang Khắc phục sự cố](/vi/troubleshooting/token-error.md).
     :::
 
 ##### Client-admin

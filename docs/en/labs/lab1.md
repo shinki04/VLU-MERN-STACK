@@ -62,7 +62,7 @@ Server `(port: 3000)` → Client Admin `(port: 3001)` → Client Customer `(port
 
 ### Hotmail
   ::: warning WARNING
-  You can use Gmail as an alternative because Hotmail is no longer supported by Microsoft. If you encounter errors, please see [Common Errors when Configuring Email](/en/troubleshooting/hotmail).
+  You can use Gmail as an alternative because Hotmail is no longer supported by Microsoft. If you encounter errors, please see [Common Errors when Configuring Email](/en/troubleshooting/hotmail.md).
   :::
 - Sign up for an account from Microsoft: [https://signup.live.com](https://signup.live.com)
   - New email: `<email_user>@hotmail.com`

@@ -144,7 +144,7 @@ $ npm install nodemailer --save
 </div>
 
   ::: warning WARNING
-  Bạn có thể sử dụng gmail để thay thế bởi vì hotmail đã bị Microsoft ngừng hỗ trợ. Nếu gặp lỗi, hãy xem [Các lỗi thường gặp khi cấu hình Email](/vi/troubleshooting/hotmail).
+  Bạn có thể sử dụng gmail để thay thế bởi vì hotmail đã bị Microsoft ngừng hỗ trợ. Nếu gặp lỗi, hãy xem [Các lỗi thường gặp khi cấu hình Email](/vi/troubleshooting/hotmail.md).
 
   :::
   
@@ -321,7 +321,7 @@ app.use('/api/admin', require('./api/admin.js'));
 
   Vui lòng kiểm tra lại thông tin tài khoản admin trong database.
 
-  Nếu chưa có dữ liệu admin, bạn có thể thêm lại dữ liệu từ file `admins.json` vào database `shoppingonline` theo hướng dẫn [tại đây](/vi/labs/lab1.html#mongodb-atlas).
+  Nếu chưa có dữ liệu admin, bạn có thể thêm lại dữ liệu từ file `admins.json` vào database `shoppingonline` theo hướng dẫn [tại đây](/vi/labs/lab1.md#mongodb-atlas).
 
   Bạn có thể lấy file `admins.json` [tại đây](https://github.com/tsonkk/shoppingonline-resources/blob/main/mongodb/admins.json).
 

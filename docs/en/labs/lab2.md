@@ -144,7 +144,7 @@ $ npm install nodemailer --save
 </div>
 
   ::: warning WARNING
-  You can use Gmail as an alternative because Hotmail is no longer supported by Microsoft. If you encounter errors, please see [Common Errors when Configuring Email](/en/troubleshooting/hotmail).
+  You can use Gmail as an alternative because Hotmail is no longer supported by Microsoft. If you encounter errors, please see [Common Errors when Configuring Email](/en/troubleshooting/hotmail.md).
   :::
   
 ```javascript
@@ -320,7 +320,7 @@ app.use('/api/admin', require('./api/admin.js'));
 
   Please double check the admin account information in the database.
 
-  If there is no admin data yet, you can import data from the `admins.json` file into the `shoppingonline` database following the instructions [here](/en/labs/lab1#mongodb-atlas).
+  If there is no admin data yet, you can import data from the `admins.json` file into the `shoppingonline` database following the instructions [here](/en/labs/lab1.md#mongodb-atlas).
 
   You can get the `admins.json` file [here](https://github.com/tsonkk/shoppingonline-resources/blob/main/mongodb/admins.json).
 

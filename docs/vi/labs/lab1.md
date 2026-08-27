@@ -60,7 +60,7 @@ Server `(port: 3000)` → Client Admin `(port: 3001)` → Client Customer `(port
 
 ### Hotmail
   ::: warning WARNING
-  Bạn có thể sử dụng gmail để thay thế bởi vì hotmail đã bị Microsoft ngừng hỗ trợ. Nếu gặp lỗi, hãy xem [Các lỗi thường gặp khi cấu hình Email](/vi/troubleshooting/hotmail).
+  Bạn có thể sử dụng gmail để thay thế bởi vì hotmail đã bị Microsoft ngừng hỗ trợ. Nếu gặp lỗi, hãy xem [Các lỗi thường gặp khi cấu hình Email](/vi/troubleshooting/hotmail.md).
 
   :::
 - Đăng ký tài khoản từ Microsoft: [https://signup.live.com](https://signup.live.com)

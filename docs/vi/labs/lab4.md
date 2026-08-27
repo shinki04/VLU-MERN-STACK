@@ -519,7 +519,7 @@ router.put('/products', JwtUtil.checkToken, async function (req, res) { // [!cod
 ```
 
 ::: danger LỖI
-2 đoạn code trên lỗi. Hướng dẫn và giải thích tại [đây](/vi/troubleshooting/lab4-put-product).
+2 đoạn code trên lỗi. Hướng dẫn và giải thích tại [đây](/vi/troubleshooting/lab4-put-product.md).
 :::
 
 ###### Kiểm tra với Postman
