@@ -12,7 +12,7 @@ Bài hướng dẫn này sẽ giúp bạn đóng gói từng dịch vụ trong d
 Trước khi bắt đầu Docker hóa dự án, bạn cần đảm bảo các công cụ cần thiết đã được cài đặt và hoạt động bình thường trên máy tính của mình.
 
 ### 1. Cài đặt Node.js và npm
-Dự án MERN Stack yêu cầu cài đặt Node.js và npm. Hướng dẫn chi tiết cách cài đặt và kiểm tra phiên bản đã được trình bày cụ thể tại [Lab 1](../labs/lab1#nodejs). Bạn hãy truy cập Lab 1 để hoàn thành bước chuẩn bị này trước khi tiếp tục.
+Dự án MERN Stack yêu cầu cài đặt Node.js và npm. Hướng dẫn chi tiết cách cài đặt và kiểm tra phiên bản đã được trình bày cụ thể tại [Lab 1](../labs/lab1.md#nodejs). Bạn hãy truy cập Lab 1 để hoàn thành bước chuẩn bị này trước khi tiếp tục.
 
 ### 2. Tải và cài đặt Docker Desktop (Docker GUI)
 Docker Desktop là phần mềm cung cấp giao diện đồ họa (GUI) trực quan giúp bạn dễ dàng theo dõi, quản lý, khởi động hoặc dừng các container, images, networks và volumes trực tiếp bằng giao diện mà không cần gõ lệnh.
@@ -20,11 +20,11 @@ Docker Desktop là phần mềm cung cấp giao diện đồ họa (GUI) trực 
 * **Tải bộ cài đặt:** Truy cập trang chủ [Docker Desktop Download](https://www.docker.com/products/docker-desktop/) và chọn phiên bản tải về phù hợp với hệ điều hành của bạn (Windows, macOS hoặc Linux).
 * **Tiến hành cài đặt:**
   - **Trên Windows:** Chạy tệp cài đặt `.exe` đã tải xuống. Hãy tích chọn **Use WSL 2 instead of Hyper-V** khi được hỏi để tối ưu hóa hiệu năng container.
-  - **Lưu ý ảo hóa:** Đảm bảo bạn đã bật tính năng ảo hóa (Virtualization) trong BIOS/UEFI của máy tính (có thể kiểm tra trạng thái ảo hóa trong Task Manager -> tab Performance -> CPU).
+  - **Lưu ý ảo hóa:** Đảm bảo bạn đã bật tính năng ảo hóa (Virtualization) trong BIOS/UEFI của máy tính (cật nhật trạng thái ảo hóa trong Task Manager -> tab Performance -> CPU).
   - **Khởi động Docker:** Sau khi cài đặt hoàn tất, hãy mở ứng dụng Docker Desktop từ màn hình Desktop hoặc menu Start.
 
 ::: tip Khắc phục sự cố cài đặt
-Nếu trong quá trình khởi động hoặc chạy Docker Desktop bạn gặp lỗi **"Docker Virtualization not enabled on your machine"**, hãy tham khảo tài liệu hướng dẫn tự khắc phục tại [Hướng dẫn sửa lỗi ảo hóa Docker](../troubleshooting/docker-virtualization).
+Nếu trong quá trình khởi động hoặc chạy Docker Desktop bạn gặp lỗi **"Docker Virtualization not enabled on your machine"**, hãy tham khảo tài liệu hướng dẫn tự khắc phục tại [Hướng dẫn sửa lỗi ảo hóa Docker](../troubleshooting/docker-virtualization.md).
 :::
 
 ### 3. Kiểm tra Docker hoạt động
