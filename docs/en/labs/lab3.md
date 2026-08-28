@@ -336,7 +336,7 @@ class CategoryDetail extends Component {
       ...
     );
   }
-  # event-handlers
+  // event-handlers
   btnAddClick(e) {
     e.preventDefault();
     const name = this.state.txtName;
@@ -347,7 +347,7 @@ class CategoryDetail extends Component {
       alert('Please enter category name');
     }
   }
-  # apis
+  // apis
   apiPostCategory(cate) {
     const config = { headers: { 'x-access-token': this.context.token } };
     axios.post('/api/admin/categories', cate, config).then((res) => {
@@ -439,7 +439,7 @@ class CategoryDetail extends Component {
       ...
     );
   }
-  # event-handlers
+  // event-handlers
   btnUpdateClick(e) {
     e.preventDefault();
     const id = this.state.txtID;
@@ -451,7 +451,7 @@ class CategoryDetail extends Component {
       alert('Please enter ID and Name');
     }
   }
-  # apis
+  // apis
   apiPutCategory(id, cate) {
     const config = { headers: { 'x-access-token': this.context.token } };
     axios.put('/api/admin/categories/' + id, cate, config).then((res) => {
@@ -529,7 +529,7 @@ class CategoryDetail extends Component {
       ...
     );
   }
-  # event-handlers
+  // event-handlers
   btnDeleteClick(e) {
     e.preventDefault();
     if (window.confirm('ARE YOU SURE?')) {
@@ -541,7 +541,7 @@ class CategoryDetail extends Component {
       }
     }
   }
-  # apis
+  // apis
   apiDeleteCategory(id) {
     const config = { headers: { 'x-access-token': this.context.token } };
     axios.delete('/api/admin/categories/' + id, config).then((res) => {

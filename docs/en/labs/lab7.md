@@ -15,10 +15,10 @@ class MyProvider extends Component {
   constructor(props) {
     ...
     this.state = { // global state
-      # variables
+      // variables
       ...,
       mycart: [],
-      # functions
+      // functions
       ...,
       setMycart: this.setMycart
     };
