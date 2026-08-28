@@ -12,7 +12,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started (Lab 1)
-      link: /labs/lab1
+      link: /en/labs/lab1
     - theme: alt
       text: View Source
       link: https://github.com/shinki04/VLU-MERN-STACK

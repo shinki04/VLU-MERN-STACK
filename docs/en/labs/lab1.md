@@ -16,7 +16,6 @@ Server `(port: 3000)` → Client Admin `(port: 3001)` → Client Customer `(port
   - Menu **Database** => **Create a free database**
     - Cloud provider & Region: AWS + Singapore
     - Cluster name: `<cluster>`
-     [[IMAGE]]
 - **Database Access:**
   - Menu **Database Access** => **Create a Database User**
     - Authentication method: Username and Password
@@ -24,9 +23,7 @@ Server `(port: 3000)` → Client Admin `(port: 3001)` → Client Customer `(port
     ::: tip TIP
     For convenience in subsequent configuration and database connection steps, you should save the created **username** and **password**.
     :::
-     [[IMAGE 3]]
     - Select `Create Database User` to create the database management account.
-     [[IMAGE 4]]
     - Press `Choose a connection method` to select how to connect to the database.
     ::: details DETAILS {open}
       You can choose the connection method that suits your purpose:
@@ -35,7 +32,6 @@ Server `(port: 3000)` → Client Admin `(port: 3001)` → Client Customer `(port
       - **Shell:** Used when wanting to connect through a CLI like CMD or PowerShell.
       - **...:** Other connection methods depending on your needs.
     :::
-    [[IMAGE 5]]
 - **Network Access:**
   - Menu **Network Access** => **Add an IP address**
     - Access list entry: `0.0.0.0/0` (allow access from anywhere).
@@ -43,7 +39,6 @@ Server `(port: 3000)` → Client Admin `(port: 3001)` → Client Customer `(port
       `0.0.0.0/0` allows access from any IP address. This configuration is only used within the scope of this lab for convenience.
       Do not use this configuration in production environments.
     :::
-    [[IMAGE 6 7]]
 
 - **MongoDB Compass:**
   ::: details DETAILS {open}
